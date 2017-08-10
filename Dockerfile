@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Larry Howard <larry.howard@vanderbilt.edu>
+MAINTAINER Bean Works <no-reply@beanworks.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -yqq ruby rubygems-integration
 
 # install fake-s3
-RUN gem install fakes3 -v 0.2.5
+RUN gem install fakes3 -v 1.2.0
 
 # run fake-s3
 RUN mkdir -p /fakes3_root
