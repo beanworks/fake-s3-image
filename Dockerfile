@@ -1,22 +1,6 @@
-FROM debian:jessie
-MAINTAINER Bean Works <no-reply@beanworks.com>
-
-ENV DEBIAN_FRONTEND noninteractive
+FROM ruby:2.3
 
 RUN \
-  # Install gcc, g++, git, make, Ruby, and zlib.
-  apt-get update && \
-  apt-get install -yqq \
-    gcc \
-    g++ \
-    git \
-    make \
-    ruby \
-    ruby-dev \
-    rubygems-integration \
-    zlib1g-dev && \
-  # Install Bundler.
-  gem install bundle && \
   # Install fakes3.
   git clone https://github.com/beanworks/fake-s3.git && \
   cd fake-s3 && \
