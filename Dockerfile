@@ -8,6 +8,10 @@ RUN \
   # Create fakes3 filesystem directory.
   mkdir -p /fakes3_root
 
+# Fails to require "fakes3/cli" without moving to this directory.
+# Maybe some ruby expert can figure out how to avoid this.
+WORKDIR /fake-s3
+
 ENTRYPOINT ["/fake-s3/bin/fakes3"]
 CMD ["-r",  "/fakes3_root", "-p",  "4569"]
 EXPOSE 4569
