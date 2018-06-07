@@ -12,6 +12,9 @@ RUN \
 # Maybe some ruby expert can figure out how to avoid this.
 WORKDIR /fake-s3
 
-ENTRYPOINT ["/fake-s3/bin/fakes3"]
-CMD ["-r",  "/fakes3_root", "-p",  "4569"]
+COPY fixtures.tar .
+COPY entrypoint.sh .
+
 EXPOSE 4569
+
+ENTRYPOINT /fake-s3/entrypoint.sh
